@@ -1,0 +1,16 @@
+App management using terraform, AWS NLB, Hlem and EKS.
+
+Step 1: Create a simple Node.js app(Hello World)
+
+Step 2: Setup terraform for EKS cluster
+Step 2a: Create terraform IaC
+Step 2b: Apply the terraform configuration
+
+Step 3: Deploy the Application with Helm
+
+Step 4: Expose with NLB using AWS NLB
+step 4a: kubectl apply -k "github.com/aws/eks-charts/stable/aws-load-balancer-controller//crds?ref=release-1.2"
+step 4b: helm repo add eks https://aws.github.io/eks-charts
+step 4c: helm upgrade -i aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=my-eks-cluster --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller
+
+Step 5: Destroy the custer using terraform destroy at the end.

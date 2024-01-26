@@ -1,0 +1,9 @@
+image:
+  repository: praveer1/my-nodejs-app
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  name: myapp-service
+  type: LoadBalancer
+  port: 80
